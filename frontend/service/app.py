@@ -16,7 +16,7 @@ name_space = app.namespace('prediction', description='Prediction APIs')
 
 model = app.model('Prediction params', 
 				  {'textField1': fields.String(required = True, 
-				  							   description="Text Field 1", 
+				  							   description="Text Field 1",
     					  				 	   help="Text Field 1 cannot be blank")
 				#   'textField2': fields.String(required = True, 
 				#   							   description="Text Field 2", 
@@ -33,7 +33,7 @@ model = app.model('Prediction params',
 					}
 				)
 
-# classifier = joblib.load('classifier.joblib')
+# model = joblib.load('classifier.joblib')
 
 @name_space.route("/")
 class MainClass(Resource):
@@ -53,7 +53,7 @@ class MainClass(Resource):
 			formula = data[0]
 			parsed_formula = parseInput(formula)
 			sample = makeSample(parsed_formula)
-			# prediction = classifier.predict(sample)
+			# prediction = model.predict(sample)
 			response = jsonify({
 				"statusCode": 200,
 				"status": "Prediction made",
