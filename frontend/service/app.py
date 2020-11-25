@@ -53,7 +53,7 @@ class MainClass(Resource):
 			formula = data[0]
 			parsed_formula = parseInput(formula)
 			sample = makeSample(parsed_formula)
-			# prediction = classifier.predict(data)
+			# prediction = classifier.predict(sample)
 			response = jsonify({
 				"statusCode": 200,
 				"status": "Prediction made",
