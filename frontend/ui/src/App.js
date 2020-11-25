@@ -74,10 +74,10 @@ class App extends Component {
           <Form>
             <Form.Row>
               <Form.Group as={Col}>
-                <Form.Label>Chemical Elements</Form.Label>
+                <Form.Label>Chemical Formula</Form.Label>
                 <Form.Control 
                   type="text" 
-                  placeholder="Enter elements here..." 
+                  placeholder="Enter formula here..." 
                   name="textfield1"
                   value={formData.textfield1}
                   onChange={this.handleChange} />

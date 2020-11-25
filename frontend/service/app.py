@@ -1,12 +1,16 @@
 from flask import Flask, request, jsonify, make_response
+from flask_cors import CORS
 from flask_restplus import Api, Resource, fields
 from sklearn.externals import joblib
+from sampleParser import parseInput, makeSample
 
 flask_app = Flask(__name__)
 app = Api(app = flask_app, 
 		  version = "1.0", 
 		  title = "ML React App", 
 		  description = "Predict results using a trained model")
+
+CORS(flask_app)
 
 name_space = app.namespace('prediction', description='Prediction APIs')
 
@@ -45,12 +49,15 @@ class MainClass(Resource):
 	def post(self):
 		try: 
 			formData = request.json
-			data = formData.values()
+			data = [val for val in formData.values()]
+			formula = data[0]
+			parsed_formula = parseInput(formula)
+			sample = makeSample(parsed_formula)
 			# prediction = classifier.predict(data)
 			response = jsonify({
 				"statusCode": 200,
 				"status": "Prediction made",
-				"result": "Prediction: " + str(data)
+				"result": "Prediction: " + str(sample)
 				})
 			response.headers.add('Access-Control-Allow-Origin', '*')
 			return response
