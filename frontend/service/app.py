@@ -3,6 +3,18 @@ from flask_cors import CORS
 from flask_restplus import Api, Resource, fields
 from sklearn.externals import joblib
 from sampleParser import parseInput, makeSample
+import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+
+def f1(y_true, y_pred):
+    return 1
+
+def precision(y_true, y_pred):
+    return 1
+
+def recall(y_true, y_pred):
+    return 1
 
 flask_app = Flask(__name__)
 app = Api(app = flask_app, 
@@ -33,7 +45,7 @@ model = app.model('Prediction params',
 					}
 				)
 
-# model = joblib.load('classifier.joblib')
+prediction_model = keras.models.load_model('test')
 
 @name_space.route("/")
 class MainClass(Resource):
@@ -47,17 +59,17 @@ class MainClass(Resource):
 
 	@app.expect(model)		
 	def post(self):
-		try: 
+		try:
 			formData = request.json
 			data = [val for val in formData.values()]
 			formula = data[0]
 			parsed_formula = parseInput(formula)
 			sample = makeSample(parsed_formula)
-			# prediction = model.predict(sample)
+			prediction = prediction_model.predict(np.array(sample).reshape(1, -1))
 			response = jsonify({
 				"statusCode": 200,
 				"status": "Prediction made",
-				"result": "Prediction: " + str(sample)
+				"result": "Predicted critical temperature: " + str(prediction[0][0]) + " K"
 				})
 			response.headers.add('Access-Control-Allow-Origin', '*')
 			return response
