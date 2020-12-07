@@ -82,57 +82,7 @@ class App extends Component {
                   value={formData.textfield1}
                   onChange={this.handleChange} />
               </Form.Group>
-              {/* <Form.Group as={Col}>
-                <Form.Label>Text Field 2</Form.Label>
-                <Form.Control 
-                  type="text" 
-                  placeholder="Text Field 2" 
-                  name="textfield2"
-                  value={formData.textfield2}
-                  onChange={this.handleChange} />
-              </Form.Group> */}
             </Form.Row>
-            {/* <Form.Row>
-              <Form.Group as={Col}>
-                <Form.Label>Select 1</Form.Label>
-                <Form.Control 
-                  as="select"
-                  value={formData.select1}
-                  name="select1"
-                  onChange={this.handleChange}>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </Form.Control>
-              </Form.Group>
-              <Form.Group as={Col}>
-                <Form.Label>Select 2</Form.Label>
-                <Form.Control 
-                  as="select"
-                  value={formData.select2}
-                  name="select2"
-                  onChange={this.handleChange}>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </Form.Control>
-              </Form.Group>
-              <Form.Group as={Col}>
-                <Form.Label>Select 3</Form.Label>
-                <Form.Control 
-                  as="select"
-                  value={formData.select3}
-                  name="select3"
-                  onChange={this.handleChange}>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </Form.Control>
-              </Form.Group>
-            </Form.Row> */}
             <Row>
               <Col>
                 <Button

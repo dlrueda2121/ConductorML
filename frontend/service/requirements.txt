@@ -18,3 +18,5 @@ sklearn==0.0
 Werkzeug==0.15.2
 pandas
 tensorflow
+torch
+blitz-bayesian-pytorch
