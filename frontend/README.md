@@ -20,7 +20,7 @@
 
 ## 3. Running the backend
 
-  To start running the backend, go to `frontend/service` and run
+  To start running the backend, open up a new terminal window and go to `frontend/service` and run
   
         virtualenv -p Python3 .
         source bin/activate
